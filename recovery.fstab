@@ -1,0 +1,12 @@
+# mount point	fstype    device    	[device2]
+
+/dev/block/platform/hi_mci.0/by-name/boot		/boot			emmc 		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/cache		/cache			ext4		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/userdata	/data			ext4		rw,seclabel,nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered 0
+/dev/block/platform/hi_mci.0/by-name/misc  		/misc			emmc		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/recovery	/recovery		emmc		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/system		/system			ext4		defaults defaults
+/dev/block/mmcblk1p1							/external_sd	vfat		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/cust		/cust			ext4		ro,seclabel,nosuid,nodev,relatime 0
+/dev/block/platform/hi_mci.0/by-name/3rdmodem	/3rdmodem		ext4		defaults defaults
+/dev/block/platform/hi_mci.0/by-name/modemnvm2	/mnvm2:0		ext4		defaults defaults

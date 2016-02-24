@@ -1,0 +1,75 @@
+USE_CAMERA_STUB := true
+
+#TARGET_PROVIDES_LIBAUDIO := true
+
+# inherit from the proprietary version
+-include vendor/huawei/p8/BoardConfigVendor.mk
+-include vendor/huawei/p8/p8-vendor-blobs.mk
+
+TARGET_BUILD_VARIANT=eng
+TARGET_BUILD_TYPE=debug
+
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := kirin930
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_SMP := true
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+
+TARGET_BOOTLOADER_BOARD_NAME := p8
+
+BOARD_KERNEL_CMDLINE := androidboot.hardware=hi3635 mem=3072M mmcparts=mmcblk0:p1(vrl),p2(vrl_backup),p6(modemnvm_factory),p9(splash),p10(modemnvm_backup),p11(modemnvm_img),p12(modemnvm_system),p14(3rdmodemnvm),p15(3rdmodemnvmback),p17(modem_om),p20(modemnvm_update),p30(modem),p31(modem_dsp),p32(dfx),p33(3rdmodem) androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x00678000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07588000 --tags_offset 0xffb88000
+
+BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 11448352768
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_PREBUILT_KERNEL := device/huawei/p8/kernel
+#TARGET_KERNEL_CONFIG := merge_hi3635_defconfig
+#VARIANT_DEFCONFIG:=hisi_3635_defconfig
+#TARGET_KERNEL_ARCH：=arm64
+#OBB_PRODUCT_NAME=hi3635_udp
+
+USE_OPENGL_RENDERER := true
+
+# Audio
+# Audio
+#USE_PROPRIETARY_AUDIO_EXTENSIONS := true
+#TARGET_PROVIDES_LIBAUDIO := true
+#BOARD_USES_GENERIC_AUDIO := true
+#BOARD_USES_SRS_TRUEMEDIA := true
+
+
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+DEVICE_RESOLUTION := 1080x1920
+RECOVERY_SDCARD_ON_DATA := true
+TW_NO_USB_STORAGE := true
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+
+
+
+#TARGET_KERNEL_SOURCE := kernel/huawei/p8
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX:=aarch64-linux-android-
+TARGET_USES_UNCOMPRESSED_KERNEL := false
+
+
+
+
+
