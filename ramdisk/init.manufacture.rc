@@ -1,5 +1,4 @@
 on early-init
-test
 
 
 on init

@@ -1,18 +1,6 @@
 import /init.balong_modem.rc
 import /init.tee.rc
 
-import /init.hisi.rc
-
-import /init.audio.rc
-import /init.connectivity.rc
-import /init.device.rc
-import /init.extmodem.rc
-import /init.manufacture.rc
-import /init.performance.rc
-import /init.platform.rc
-import /init.protocol.rc
-import /init.5844.rc
-
 on early-init
     export SECONDARY_STORAGE /storage/sdcard1
     mkdir /mnt/shell 0700 shell shell
@@ -114,6 +102,7 @@ on charger
 on fs
     export ANDROID_STORAGE ""
 
+
     mount ext4 /dev/block/mmcblk0p34 /cache
 
     wait /dev/block/mmcblk0p38
@@ -124,6 +113,7 @@ on fs
     mount ext4 /dev/block/mmcblk0p40 /data nosuid nodev noatime wait crypt discard,noauto_da_alloc,mblk_io_submit,data=ordered
 
     setprop ro.crypto.fuse_sdcard true
+
 
 on post-fs
     mkdir /data/offlinelogs 0775 root system
