@@ -20,3 +20,7 @@ void __android_logPower_print(void) {
 int isLogEnabled(void) {
     return 0;
 }
+
+void _ZN7android11AudioSystem11setFmVolumeEf(void) {
+return 0;
+}
