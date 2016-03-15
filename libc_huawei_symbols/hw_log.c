@@ -22,5 +22,4 @@ int isLogEnabled(void) {
 }
 
 void _ZN7android11AudioSystem11setFmVolumeEf(void) {
-return 0;
 }
