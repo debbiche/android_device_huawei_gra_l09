@@ -195,6 +195,7 @@ on boot
     chown system system /sys/bus/platform/drivers/huawei,altek6045/check_ois
     chmod 664 /sys/bus/platform/drivers/huawei,altek6045/check_ois
 
+	chmod 0444 /proc/cmdline
 
     chmod 660 /proc/hifidsp/hifi
     chown root audio /proc/hifidsp/hifi

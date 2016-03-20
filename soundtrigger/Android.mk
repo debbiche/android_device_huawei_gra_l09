@@ -1,4 +1,4 @@
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,15 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
+
+# Stub sound_trigger HAL module, used for tests
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := \
-	hw_gui.cpp \
-    hw_log.c
-
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
-LOCAL_MODULE := libc_huawei_symbols
+LOCAL_MODULE := sound_trigger.primary.hi3635
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_SRC_FILES := sound_trigger_hw.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
+LOCAL_32_BIT_ONLY := true
 
-# Debugging (uncomment to enable)
-#LOCAL_CFLAGS += -DHW_LIBC_DEBUG
-#LOCAL_WHOLE_STATIC_LIBRARIES := liblog
-
-include $(BUILD_STATIC_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)

@@ -89,8 +89,12 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/ramdisk/sbin/teecd:root/sbin/teecd
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
-
+        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+        frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+        frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+        $(LOCAL_PATH)/bt-wifi-firmware-util/TIInit_11.8.32.bts:system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts \
+        $(LOCAL_PATH)/bt-wifi-firmware-util/TIInit_11.8.32.bts:system/etc/firmware/TIInit_11.8.32.bts \
+        $(LOCAL_PATH)/bt-wifi-firmware-util/wl18xx-fw-4.bin:system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin
 
 # Add openssh support for remote debugging and job submission
 PRODUCT_PACKAGES += ssh sftp scp sshd ssh-keygen sshd_config start-ssh uim wpa_supplicant
@@ -122,9 +126,41 @@ PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += iontest \
                     ion-unit-tests
 
+
+PRODUCT_PACKAGES += \
+	audio.primary.default \
+	sound_trigger.primary.hi3635 \
+	audio_policy.stub \
+	audio.a2dp.default \
+	audio.usb.default \
+	audio.r_submix.default \
+	libaudioutils \
+	libtinyalsa \
+	tinyplay \
+	tinycap \
+	tinymix \
+	tinypcminfo \
+	libnfc-nci \
+	libnfc_nci_jni \
+	camera.hi3635 \
+	Nfc \
+	Tag \
+	com.android.nfc_extras \
+
+# SeLinux
+BOARD_SEPOLICY_DIRS += \
+	$(LOCAL_PATH)/selinux
+
+
 # Set zygote config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
-PRODUCT_PROPERTY_OVERRIDES += debug.sf.no_hw_vsync=1
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.sf.no_hw_vsync=1 \
+	audioril.lib=libhuawei-audio-ril.so \
+	ro.telephony.ril_class=HuaweiRIL \
+	telephony.lteOnCdmaDevice=1 \
+	telephony.lteOnGsmDevice=1 \
+	ro.telephony.default_network=9
 
 $(call inherit-product, build/target/product/full.mk)
 

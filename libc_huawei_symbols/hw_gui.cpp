@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 
-void __android_logPower_print(int a1, const char *a2, int *a3, int a4) {
+namespace android {
 
-}
+int DISPLAY_SIZE_DENSITY_VALUE;
+int DISPLAY_SIZE_DENSITY;
 
-void _ZN7android11AudioSystem14getLowPowerApkEv(void) {
-
-}
-
-void _ZN7android11AudioSystem11setFmVolumeEf(void) {
-
-}
-
-void _ZN7android11FileSource2C1EPKc(void) {
-
-}
-
+}; // namespace android
