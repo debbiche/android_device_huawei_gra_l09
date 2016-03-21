@@ -34,7 +34,6 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 
 # Enable various prefetch optimizations
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
-COMMON_GLOBAL_CFLAGS += -DHISILICON_HI3635
 
 # Init
 TARGET_PROVIDES_INIT := true
@@ -85,8 +84,6 @@ BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_huawei_symbols
 TARGET_USES_HUAWEI_LOG := true
 TARGET_USES_HUAWEI_APP_INFO := true
 
-# GPS
-
 # Camera
 BOARD_CAMERA_HAVE_ISO := true
 USE_CAMERA_STUB := false
@@ -106,10 +103,8 @@ USE_OPENGL_RENDERER := true
 #TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DDEFAULT_DRM_FB_WIDTH=720 -DDEFAULT_DRM_FB_HEIGHT=1280 -DHISILICON_HI6210SFT
 #TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp 
 
-# Hardware
-#HISI_TARGET_PRODUCT := hi3635
-#TARGET_USE_PAN_DISPLAY := true
-BOARD_RIL_CLASS := device/huawei/p8/ril
+# Ril
+BOARD_RIL_CLASS := ../../../device/huawei/p8/ril/
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=hi3635 mem=3072M mmcparts=mmcblk0:p1(vrl),p2(vrl_backup),p6(modemnvm_factory),p9(splash),p10(modemnvm_backup),p11(modemnvm_img),p12(modemnvm_system),p14(3rdmodemnvm),p15(3rdmodemnvmback),p17(modem_om),p20(modemnvm_update),p30(modem),p31(modem_dsp),p32(dfx),p33(3rdmodem) androidboot.selinux=disabled

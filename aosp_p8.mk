@@ -8,9 +8,6 @@ $(call inherit-product-if-exists, vendor/huawei/p8/p8-vendor.mk)
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Configure dalvik heap
-#$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-
 # Enable ADB during boot for debugging. (Very unsafe. Remove before public build)
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
@@ -126,7 +123,6 @@ PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += iontest \
                     ion-unit-tests
 
-
 PRODUCT_PACKAGES += \
 	audio.primary.default \
 	sound_trigger.primary.hi3635 \
@@ -151,9 +147,6 @@ PRODUCT_PACKAGES += \
 BOARD_SEPOLICY_DIRS += \
 	$(LOCAL_PATH)/selinux
 
-
-# Set zygote config
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.no_hw_vsync=1 \
 	audioril.lib=libhuawei-audio-ril.so \
@@ -161,6 +154,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnCdmaDevice=1 \
 	telephony.lteOnGsmDevice=1 \
 	ro.telephony.default_network=9
+
+# USB OTG support
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.isUsbOtgEnabled=true
 
 $(call inherit-product, build/target/product/full.mk)
 
